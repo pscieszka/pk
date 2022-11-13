@@ -8,15 +8,18 @@ double funkcja(double x)
 }
 double szereg(double x)
 {
-    double s,w;
-    s=x;
-    w=x;
-    for(int i=1;i<=li; i++)
+    
+    double w=1/x,s;
+    for(int i=1;i<=2*li; i+=2)
     {
-        w = 2*(1/((w*x*x)+(2*w*x*x)));
-        s=s+w;
+        double temp=(2+i)*(pow(x,2+i));
+        temp = 1/temp;
+        w += temp;
     }
-    return s;
+
+    return  2*w;
+    
+   
 }
 
 int main()
@@ -28,7 +31,7 @@ int main()
     krok=(b-a)/lp;
     printf("krok=%6.2lf\n\n\n",krok);
     printf(" ----------------------------\n\n");
-    printf(" x szereg(x) funkcja(x)\n ----------------------------\n");
+    printf("      x szereg(x) funkcja(x)\n ----------------------------\n");
     for (x=a;x<=b;x+=krok)
     {
         printf("%10.2lf %7.4lf %7.4lf\n",x,szereg(x),funkcja(x));
