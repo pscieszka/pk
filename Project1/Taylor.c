@@ -31,11 +31,19 @@ int main()
     krok=(b-a)/lp;
     printf("krok=%6.2lf\n\n\n",krok);
     printf(" ----------------------------\n\n");
-    printf("      x szereg(x) funkcja(x)\n ----------------------------\n");
+    printf("      x szereg(x) funkcja(x)  NNDD - nie nalezy do dziedziny\n ----------------------------\n");
     for (x=a;x<=b;x+=krok)
     {
+        if(x>1 || x<-1){
         printf("%10.2lf %7.4lf %7.4lf\n",x,szereg(x),funkcja(x));
         printf(" ----------------------------\n\n");
+
+        }
+        else{
+        printf("%10.2lf  NNDD  NNDD\n",x);
+        printf(" ----------------------------\n\n");
+        
+        }
     }
 
 }
