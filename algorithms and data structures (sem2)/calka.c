@@ -14,7 +14,6 @@ y=sin(2*x)+cos(3*x)-1;
 return y;       
 }
 
-
 int main(int argc, char *argv[])
 {
     
