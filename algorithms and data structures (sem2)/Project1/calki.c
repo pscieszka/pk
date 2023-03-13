@@ -18,7 +18,7 @@ double prostokaty(double( *f)(double))
 {
        double krok, p, suma=0;
        krok=(c_do-c_od)/lp;
-       for(p=(2*c_od+krok)/2.0; p<c_do; p+=krok) //środki prostokątów
+       for(p=(2*c_od+krok)/2.0; p<c_do; p+=krok) //środki prostokątów.
                suma+=(*f)(p);
         suma*=krok;
        return suma;      
