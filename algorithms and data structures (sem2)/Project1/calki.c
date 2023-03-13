@@ -7,10 +7,10 @@ double c_od,c_do;
 
 double f3(double x)
 {
- return 0.01*pow(x,9)-0.03*pow(x,8)+0.5*pow(x,4)-12*pow(x,3)+pow(x,2)-x+25;      
+ return pow(x,5)+6*pow(x,4)+7.75*pow(x,3)-1.5*pow(x,2)+pow(x,2)-2*x;      
 }      
 double f4(double x) {
- return sin(2*x)-6*cos(3*x)+3*x*x;
+ return sin(2*x)-6*cos(3*x)+x*x+3;
 }
 
 
