@@ -53,6 +53,7 @@ double mc(double(*f)(double))
 double zakres = c_do-c_od;
 double pole = (MAX-MIN)*zakres;
 double suma=0,No=0,ff=0;
+double x,y;
 for(int i=0; i<lp; i++)
 {
  double x = rand();
