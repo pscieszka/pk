@@ -40,12 +40,14 @@ double mc(double(*f)(double))
 {
  double krok = (c_do-c_od)/lp;
  double MAX=(*f)(c_od),MIN=(*f)(c_od);
+ double ff=0;
  for(double i=c_od + krok; i<=c_do; i+=krok)
  {
-  if((*f)(i)>MAX)
-        MAX=(*f)(i);
-  else if((*f)(i)<MIN)
-        MIN=(*f)(i);
+  ff = (*f)(i);
+  if(ff>MAX)
+        MAX=ff;
+  else if(ff<MIN)
+        MIN=ff;
  }
  if(MAX > 0 && MIN > 0) 
         MIN = 0;
@@ -53,7 +55,7 @@ double mc(double(*f)(double))
         MAX = 0;
 double zakres = c_do-c_od;
 double pole = (MAX-MIN)*zakres;
-double suma=0,No=0,ff=0;
+double suma=0,No=0;
 double x,y;
 for(int i=0; i<N; i++)
 {
