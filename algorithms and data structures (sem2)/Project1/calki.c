@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <math.h>
 #define lp 100000
+#define N 100000000
 
 double c_od,c_do;
 
@@ -54,7 +55,7 @@ double zakres = c_do-c_od;
 double pole = (MAX-MIN)*zakres;
 double suma=0,No=0,ff=0;
 double x,y;
-for(int i=0; i<lp; i++)
+for(int i=0; i<N; i++)
 {
  double x = rand();
  x = x/RAND_MAX*zakres+c_od;
@@ -67,7 +68,7 @@ if (ff > y && y > 0 )
 else if (ff < y && y < 0) 
 	No--;
 }	
-suma = No/lp *pole;
+suma = No/N * pole;
         return suma;
 }
 
