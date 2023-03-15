@@ -42,11 +42,10 @@ double mc(double(*f)(double))
  double ff=0;
  for(double i=c_od + krok; i<=c_do; i+=krok)
  {
-  ff = (*f)(i);
-  if(ff>MAX)
-        MAX=ff;
-  else if(ff<MIN)
-        MIN=ff;
+  if((*f)(i)>MAX)
+        MAX=(*f)(i);
+  else if((*f)(i)<MIN)
+        MIN=(*f)(i);
  }
  if(MAX > 0 && MIN > 0) 
         MIN = 0;
