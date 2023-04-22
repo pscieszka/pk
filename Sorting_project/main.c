@@ -17,14 +17,18 @@ int main(){
     
     int n = sizeof(tab)/sizeof(tab[0]);
     
-    
+     reset(tab, n);
     
     start = clock();
     bombel(tab,n);
     end = clock();
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu babelkowego: %f sekund.\n", time);
-
+    printf("\n");
+    for(int i=0; i<n; i++){
+        printf("%d,",tab[i]);
+    }
+    printf("\n");
     reset(tab, n);
     
     start = clock();
@@ -32,15 +36,23 @@ int main(){
     end = clock();
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu przez wstawianie: %f sekund.\n", time);
-   
-    
+    printf("\n");
+    for(int i=0; i<n; i++){
+        printf("%d,",tab[i]);
+    }
+    printf("\n");
+     reset(tab, n);
 
     start = clock();
     selekcja(tab,n);
     end = clock();
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu selekcja: %f sekund.\n", time);
-
+    printf("\n");
+    for(int i=0; i<n; i++){
+        printf("%d,",tab[i]);
+    }
+    printf("\n");
     reset(tab, n);
    
     start = clock();
@@ -48,17 +60,10 @@ int main(){
     end = clock();
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu quicksort: %f sekund.\n", time);
-
-    reset(tab, n);
-   
-    start = clock();
-    kopcowanie(tab,x);
-    end = clock();
-    time = difftime(end, start) / CLOCKS_PER_SEC;
-    printf("Czas dzialania algorytmu kopcowanie: %f sekund.\n", time);
-
+    printf("\n");
     for(int i=0; i<n; i++){
         printf("%d,",tab[i]);
     }
+    printf("\n");
 
 }
