@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <time.h>
+#include "sort.h" 
 void swap(int *x, int *y)
 {
     int temp = *x;
@@ -40,35 +42,47 @@ void selekcja(int* tab, int n){
 }
 
 void bombel(int* tab, int n){
-    for(int j=0; j<n-1; j++){
-        for(int i=0; i<n-j-i; i++){
+    for(int j=0; j<n; j++){
+        for(int i=0; i<n-j; i++){
             if(tab[i] > tab[i+1])
                 swap(&tab[i], &tab[i+1]);
     }
     }
 }
 
-int main(){
-
-    srand(time(NULL));
+void quicksort(int* tab, int left, int right){
     
-    int x;
-    printf("Podaj wielkosc tablicy");
-    scanf("%d",&x);
-    int tab[x];
+    int v=tab[(left+right)/2];
+    int i,j,x;
+    i=left;
+    j=right;
+    do
+    {
+        while(tab[i]<v) i++;
+        while(tab[j]>v) j--;
+        if(i<=j)
+        {
+            x=tab[i];
+            tab[i]=tab[j];
+            tab[j]=x;
+            i++;
+            j--;
+        }
+    }
+    while(i<=j);
+    if(j>left) quicksort(tab,left, j);
+    if(i<right) quicksort(tab, i, right);
+}
+
+void kopcowanie(int* tab,int n){
+}
+
+void shell(int* tab,int n){
+}
+
+void reset(int* tab, int x){
     for(int i=0; i<x; i++){
-        int r = rand() % 100;
+        int r = rand() % 201 - 100;
         tab[i]= r;
     }
-    int n = sizeof(tab)/sizeof(tab[0]);
-    
-    wstawianie(tab,n);
-    //selekcja(tab,n);
-    //bombel(tab,n);
-    for(int i=0; i<n; i++){
-        printf("%d, ",tab[i]);
-    }
-
-
-
 }
