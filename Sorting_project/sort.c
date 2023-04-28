@@ -18,10 +18,10 @@ void wstawianie(int* tab, int n){
         j = i - 1;
         while( j>=0 && tab[j] > temp){
             tab[j+1] = tab[j];
-            j=j - 1;
+            j--;
         }
         tab[j+1] = temp;
-    }
+    }   
 }
 
 
@@ -42,11 +42,11 @@ void selekcja(int* tab, int n){
 }
 
 void bombel(int* tab, int n){
-    for(int j=0; j<n; j++){
-        for(int i=0; i<n-j; i++){
-            if(tab[i] > tab[i+1])
+    for(int i=0; i<n; i++){
+        for(int j=1; j<n-i; j++){
+            if(tab[j] > tab[j+1])
                 swap(&tab[i], &tab[i+1]);
-    }
+        }
     }
 }
 
@@ -85,4 +85,27 @@ void reset(int* tab, int x){
         int r = rand() % 201 - 100;
         tab[i]= r;
     }
+}
+int *CreateArray(int n){
+    int*tab = (int *)malloc(n * sizeof(int));
+    return tab;
+}
+
+void FillArray(int *tab, int n)
+{
+	srand((int)time(NULL));
+	for (int i = 0; i < n; i++){
+		tab[i] = rand() % 201 - 100;
+    }
+}
+
+int* FreeArray(int* tab){
+
+    if (tab)
+	{
+		free(tab);
+		tab = NULL;
+	}
+    return NULL;
+	
 }
