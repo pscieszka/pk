@@ -16,5 +16,6 @@ void reset(int* tab, int n);
 void FillArray(int *tab, int n);
 int* FreeArray(int*tab);
 
-void test(int *tab,int n);
-
+void test1(int *tab,int n); // testowanie algorytmow grupy 1
+void test2(int *tab, int n); // testowanie algorytmow grupy 2
+void readFromFile(char *filename, int *tab, int n);

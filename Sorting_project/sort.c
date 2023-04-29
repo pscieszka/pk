@@ -43,9 +43,9 @@ void selekcja(int* tab, int n){
 
 void bombel(int* tab, int n){
     for(int i=0; i<n; i++){
-        for(int j=1; j<n-i; j++){
+        for(int j=0; j<n-i-1; j++){
             if(tab[j] > tab[j+1])
-                swap(&tab[i], &tab[i+1]);
+                swap(&tab[j], &tab[j+1]);
         }
     }
 }
@@ -176,18 +176,21 @@ int* FreeArray(int* tab){
     return NULL;
 	
 }
-void test(int* tab, int n){
+void test1(int* tab, int n){
     srand(time(NULL));
     clock_t start, end;
     double time;
 
+    readFromFile("dataRandom.txt",tab,n);
     start = clock();
     wstawianie(tab,n);
     end = clock();
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu insert sort: %f sekund.\n", time);
     printf("\n");
-    reset(tab,n);
+
+    //---------------------------------------------------------------------
+    readFromFile("dataRandom.txt",tab,n);
 
     start = clock();
     selekcja(tab,n);
@@ -195,7 +198,9 @@ void test(int* tab, int n){
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu selection sort: %f sekund.\n", time);
     printf("\n");
-    reset(tab,n);
+    
+    //---------------------------------------------------------------------
+    readFromFile("dataRandom.txt",tab,n);
 
     start = clock();
     bombel(tab,n);
@@ -203,7 +208,16 @@ void test(int* tab, int n){
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu bubble sort: %f sekund.\n", time);
     printf("\n");
-    reset(tab,n);
+   
+    //---------------------------------------------------------------------
+    
+}
+void test2(int *tab, int n){
+
+    srand(time(NULL));
+    clock_t start, end;
+    double time;
+    readFromFile("dataRandom.txt",tab,n);
 
     start = clock();
     quicksort(tab,0,n-1);
@@ -211,7 +225,9 @@ void test(int* tab, int n){
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu quicksort: %f sekund.\n", time);
     printf("\n");
-    reset(tab,n);
+
+    //---------------------------------------------------------------------
+    readFromFile("dataRandom.txt",tab,n);
 
     start = clock();
     kopcowanie(tab,n);
@@ -219,8 +235,10 @@ void test(int* tab, int n){
     time = difftime(end, start) / CLOCKS_PER_SEC;
     printf("Czas dzialania algorytmu heap sort: %f sekund.\n", time);
     printf("\n");
-    reset(tab,n);
-
+    
+    //---------------------------------------------------------------------
+    readFromFile("dataRandom.txt",tab,n);
+    
     start = clock();
     shell(tab,n);
     end = clock();
@@ -228,6 +246,37 @@ void test(int* tab, int n){
     printf("Czas dzialania algorytmu shell sort: %f sekund.\n", time);
     printf("\n");
     
+}
+void readFromFile(char *filename, int *tab, int n) {
+    FILE *fp;
+
+    fp = fopen(filename, "r");
+    if (fp == NULL) {
+        printf("Error\n");
+        return;
+    }
+    int cnt=0;
+    int flag =0;
+    for (int i = 0; i < n; i++) {
+        if (fscanf(fp, "%d", &tab[i]) != 1) {
+            printf("Not all numbers have been loaded\n");
+            flag= 1;
+            break;
+        }
+        cnt++;
+    }
     
 
+    fclose(fp);
+    if(flag) printf("Loaded %d numbers from file '%s' (%.2f%% of %d)\n", cnt, filename,(float)cnt/n*100, n);
+}
+
+int is_array_sorted(int *array, int num_elements) {
+    int i;
+    for (i = 1; i < num_elements; i++) {
+        if (array[i] < array[i-1]) {
+            return 0;
+        }
+    }
+    return 1;
 }

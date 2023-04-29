@@ -9,17 +9,21 @@ int main(){
     srand(time(NULL));
     clock_t start, end;
     double time;
-    int n;
-    printf("Podaj wielkosc tablicy:");
-    scanf("%d",&n);
+    int n1,n2;
+    printf("Podaj wielkosc tablicy dla grupy 1(max 10mln):");
+    scanf("%d",&n1);
+    printf("Podaj wielkosc tablicy dla grupy 2(max 10mln):");
+    scanf("%d",&n2);
 
-    int *tab = CreateArray(n);
-    FillArray(tab,n);
-    //tab = FreeArray(tab);
-    test(tab,n);
+    int *tab = CreateArray(n1);
+    test1(tab,n1);
+    tab = FreeArray(tab);
+
+    int *tab2 = CreateArray(n2);
+    test2(tab2,n2);
+    tab2 = FreeArray(tab2);
     
-   
-
+  
 
     
     
