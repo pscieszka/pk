@@ -73,12 +73,79 @@ void quicksort(int* tab, int left, int right){
     if(j>left) quicksort(tab,left, j);
     if(i<right) quicksort(tab, i, right);
 }
+void BuildHeap(int *tab, int n) {
+    int parent, child, temp;
+    for (int i = 1; i <= n; i++) {
+        temp = tab[i - 1];
+        child = i;
+        parent = child / 2;
+        while (parent > 0 && tab[parent - 1] < temp) {
+            tab[child - 1] = tab[parent - 1];
+            child = parent;
+            parent /= 2;
+        }
+        tab[child - 1] = temp;
+    }
+}
+
+void ReBuildHeap(int *tab, int last)
+{
+    int parent = 1;
+    int l_child = 2;
+    int r_child = 3;
+    int bigger_child;
+    int temp;
+
+    while(l_child < last)
+    {
+        if(r_child < last && tab[r_child-1] > tab[l_child-1])
+            bigger_child = r_child;
+        else
+            bigger_child = l_child;
+
+        if(tab[bigger_child-1] <= tab[parent-1])
+            break;
+
+        temp = tab[bigger_child-1];
+        tab[bigger_child-1] = tab[parent-1];
+        tab[parent-1] = temp;
+
+        parent = bigger_child;
+        r_child = 2*parent;
+        l_child = r_child + 1;
+    }
+}
 
 void kopcowanie(int* tab,int n){
+        BuildHeap(tab, n);
+    for(int i = n - 1; i >= 0; i--){
+        swap(&tab[0], &tab[i]);
+        ReBuildHeap(tab, i+1);
+    }
 }
 
-void shell(int* tab,int n){
+void shellInsert(int* tab, int imax, int h) {
+    for (int n = 0; n < h; n++) {
+        for (int i = n + h; i < imax; i += h) {
+            for (int j = i - h; j >= 0 && tab[j] > tab[j + h]; j -= h) {
+                swap(&tab[j + h], &tab[j]);
+            }
+        }
+    }
 }
+
+void shell(int* tab, int n) {
+        int hn = 1, h = 1;
+    do {
+        h = hn;
+        hn = h * 3 + 1;
+    } while (hn <= n);
+    while (h > 0) {
+        shellInsert(tab, n, h);
+        h /= 3;
+    }
+}
+
 
 void reset(int* tab, int x){
     for(int i=0; i<x; i++){
@@ -108,4 +175,59 @@ int* FreeArray(int* tab){
 	}
     return NULL;
 	
+}
+void test(int* tab, int n){
+    srand(time(NULL));
+    clock_t start, end;
+    double time;
+
+    start = clock();
+    wstawianie(tab,n);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu insert sort: %f sekund.\n", time);
+    printf("\n");
+    reset(tab,n);
+
+    start = clock();
+    selekcja(tab,n);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu selection sort: %f sekund.\n", time);
+    printf("\n");
+    reset(tab,n);
+
+    start = clock();
+    bombel(tab,n);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu bubble sort: %f sekund.\n", time);
+    printf("\n");
+    reset(tab,n);
+
+    start = clock();
+    quicksort(tab,0,n-1);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu quicksort: %f sekund.\n", time);
+    printf("\n");
+    reset(tab,n);
+
+    start = clock();
+    kopcowanie(tab,n);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu heap sort: %f sekund.\n", time);
+    printf("\n");
+    reset(tab,n);
+
+    start = clock();
+    shell(tab,n);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu shell sort: %f sekund.\n", time);
+    printf("\n");
+    
+    
+
 }

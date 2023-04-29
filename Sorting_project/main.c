@@ -16,7 +16,7 @@ int main(){
     int *tab = CreateArray(n);
     FillArray(tab,n);
     //tab = FreeArray(tab);
-    
+    test(tab,n);
     
    
 
