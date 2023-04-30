@@ -42,10 +42,18 @@ void selekcja(int* tab, int n){
 }
 
 void bombel(int* tab, int n){
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n-i-1; j++){
-            if(tab[j] > tab[j+1])
+    int swapped;
+    for (int i = 0; i < n - 1; i++) {
+        swapped = 0;
+        for (int j = 0; j < n - i - 1; j++) {
+            if (tab[j] > tab[j+1]) {
                 swap(&tab[j], &tab[j+1]);
+                swapped = 1;
+            }
+        }
+        if (!swapped) {
+            
+            break;
         }
     }
 }
@@ -181,7 +189,7 @@ void test1(int* tab, int n){
     clock_t start, end;
     double time;
 
-    readFromFile("dataRandom.txt",tab,n);
+    readFromFile("dataSortedIncreasing.txt",tab,n);
     start = clock();
     wstawianie(tab,n);
     end = clock();
@@ -190,7 +198,7 @@ void test1(int* tab, int n){
     printf("\n");
 
     //---------------------------------------------------------------------
-    readFromFile("dataRandom.txt",tab,n);
+    readFromFile("dataSortedIncreasing.txt",tab,n);
 
     start = clock();
     selekcja(tab,n);
@@ -200,7 +208,7 @@ void test1(int* tab, int n){
     printf("\n");
     
     //---------------------------------------------------------------------
-    readFromFile("dataRandom.txt",tab,n);
+    readFromFile("dataSortedIncreasing.txt",tab,n);
 
     start = clock();
     bombel(tab,n);
