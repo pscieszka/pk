@@ -25,8 +25,8 @@ int main(){
       
         printf("\n test dla n= %d \n",i);
 
-        int *tab = CreateArray2(i);
-        test2(tab,i);
+        int *tab = CreateArray(i);
+        test1(tab,i);
         fclose(f);
         
     }
