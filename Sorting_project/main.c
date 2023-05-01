@@ -25,8 +25,39 @@ int main(){
       
         printf("\n test dla n= %d \n",i);
 
-        int *tab = CreateArray(i);
-        test1(tab,i);
+        int *tab = CreateArray2(i);
+    
+    clock_t start, end;
+    double time;
+    //readFromFile("dataRandom.txt",tab,n);
+
+    start = clock();
+    quicksort(tab,0,i-1);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu quicksort: %f sekund.\n", time);
+    printf("\n");
+
+    //---------------------------------------------------------------------
+    // readFromFile("dataRandom.txt",tab,n);
+
+    start = clock();
+    kopcowanie(tab,i);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu heap sort: %f sekund.\n", time);
+    printf("\n");
+    
+    //---------------------------------------------------------------------
+    //readFromFile("dataRandom.txt",tab,n);
+    
+    start = clock();
+    shell(tab,i);
+    end = clock();
+    time = difftime(end, start) / CLOCKS_PER_SEC;
+    printf("Czas dzialania algorytmu shell sort: %f sekund.\n", time);
+    printf("\n");
+        //test2(tab,i);
         fclose(f);
         
     }
