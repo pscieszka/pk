@@ -225,7 +225,7 @@ void test2(int *tab, int n){
     srand(time(NULL));
     clock_t start, end;
     double time;
-    readFromFile("dataRandom.txt",tab,n);
+    //readFromFile("dataRandom.txt",tab,n);
 
     start = clock();
     quicksort(tab,0,n-1);
@@ -235,7 +235,7 @@ void test2(int *tab, int n){
     printf("\n");
 
     //---------------------------------------------------------------------
-    readFromFile("dataRandom.txt",tab,n);
+    // readFromFile("dataRandom.txt",tab,n);
 
     start = clock();
     kopcowanie(tab,n);
@@ -287,4 +287,11 @@ int is_array_sorted(int *array, int num_elements) {
         }
     }
     return 1;
+}
+int* CreateArray2(int n) {
+int *arr = malloc(sizeof(int) * n);
+for (int i = 0; i < n; i++) {
+arr[i] = rand() % 201 - 100;
+}
+return arr;
 }

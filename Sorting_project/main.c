@@ -15,14 +15,14 @@ int main(){
    // printf("Podaj wielkosc tablicy dla grupy 2(max 10mln):");
     //scanf("%d",&n2);
     FILE *f;
-    for(int i =575000; i<=700000; i+=25000){
+    for(int i =10000000; i<=10000000000; i+=10000000){
          f = fopen("result.txt", "a");
         stdout = f;
       
         printf("\n test dla n= %d \n",i);
 
-        int *tab = CreateArray(i);
-        test1(tab,i);
+        int *tab2 = CreateArray2(i);
+        test2(tab2,i);
         fclose(f);
         
     }
