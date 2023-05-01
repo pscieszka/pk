@@ -3,7 +3,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include "sort.h" 
-
+int* CreateArray2(int n) {
+int *arr = malloc(sizeof(int) * n);
+for (int i = 0; i < n; i++) {
+arr[i] = rand() % 201 - 100;
+}
+return arr;
+}
 int main(){
 
     srand(time(NULL));
@@ -14,15 +20,13 @@ int main(){
     scanf("%d",&n1);
    // printf("Podaj wielkosc tablicy dla grupy 2(max 10mln):");
     //scanf("%d",&n2);
-    FILE *f;
-    for(int i =250000; i<=700000; i+=25000){
-         f = fopen("result.txt", "a");
-        stdout = f;
+    for(int i =10000000; i<=10000000000; i+=10000000){
+        FILE *f = freopen("output.txt", "a", stdout);
       
         printf("\n test dla n= %d \n",i);
 
-        int *tab = CreateArray(i);
-        test1(tab,i);
+        int *tab = CreateArray2(i);
+        test2(tab,i);
         fclose(f);
         
     }
