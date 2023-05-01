@@ -189,16 +189,16 @@ void test1(int* tab, int n){
     clock_t start, end;
     double time;
 
-    readFromFile("dataSortedIncreasing.txt",tab,n);
-    start = clock();
-    wstawianie(tab,n);
-    end = clock();
-    time = difftime(end, start) / CLOCKS_PER_SEC;
-    printf("Czas dzialania algorytmu insert sort: %f sekund.\n", time);
-    printf("\n");
+    // readFromFile("dataSortedIncreasing.txt",tab,n);
+    // start = clock();
+    // wstawianie(tab,n);
+    // end = clock();
+    // time = difftime(end, start) / CLOCKS_PER_SEC;
+    // printf("Czas dzialania algorytmu insert sort: %f sekund.\n", time);
+    // printf("\n");
 
     //---------------------------------------------------------------------
-    readFromFile("dataSortedIncreasing.txt",tab,n);
+    readFromFile("dataSortedDecreasing.txt",tab,n);
 
     start = clock();
     selekcja(tab,n);
@@ -208,7 +208,7 @@ void test1(int* tab, int n){
     printf("\n");
     
     //---------------------------------------------------------------------
-    readFromFile("dataSortedIncreasing.txt",tab,n);
+    readFromFile("dataSortedDecreasing.txt",tab,n);
 
     start = clock();
     bombel(tab,n);

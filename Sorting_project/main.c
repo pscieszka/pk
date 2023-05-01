@@ -15,7 +15,7 @@ int main(){
    // printf("Podaj wielkosc tablicy dla grupy 2(max 10mln):");
     //scanf("%d",&n2);
     FILE *f;
-    for(int i =250000; i<=700000; i+=25000){
+    for(int i =575000; i<=700000; i+=25000){
          f = fopen("result.txt", "a");
         stdout = f;
       

@@ -1,144 +1,134 @@
 
+
+
  test dla n= 25000 
-Czas dzialania algorytmu insert sort: 0.000139 sekund.
+Czas dzialania algorytmu selection sort: 0.727654 sekund.
 
-Czas dzialania algorytmu selection sort: 1.000298 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000066 sekund.
+Czas dzialania algorytmu bubble sort: 0.000056 sekund.
 
 
  test dla n= 50000 
-Czas dzialania algorytmu insert sort: 0.000275 sekund.
+Czas dzialania algorytmu selection sort: 2.997726 sekund.
 
-Czas dzialania algorytmu selection sort: 3.844936 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000196 sekund.
+Czas dzialania algorytmu bubble sort: 2.946034 sekund.
 
 
  test dla n= 75000 
-Czas dzialania algorytmu insert sort: 0.000304 sekund.
+Czas dzialania algorytmu selection sort: 6.651333 sekund.
 
-Czas dzialania algorytmu selection sort: 8.649224 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000204 sekund.
+Czas dzialania algorytmu bubble sort: 9.977683 sekund.
 
 
  test dla n= 100000 
-Czas dzialania algorytmu insert sort: 0.000419 sekund.
+Czas dzialania algorytmu selection sort: 11.840644 sekund.
 
-Czas dzialania algorytmu selection sort: 15.343464 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000272 sekund.
+Czas dzialania algorytmu bubble sort: 20.049994 sekund.
 
 
  test dla n= 125000 
-Czas dzialania algorytmu insert sort: 0.000507 sekund.
+Czas dzialania algorytmu selection sort: 18.575842 sekund.
 
-Czas dzialania algorytmu selection sort: 23.873310 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000326 sekund.
+Czas dzialania algorytmu bubble sort: 34.179551 sekund.
 
 
  test dla n= 150000 
-Czas dzialania algorytmu insert sort: 0.000608 sekund.
+Czas dzialania algorytmu selection sort: 26.599006 sekund.
 
-Czas dzialania algorytmu selection sort: 34.390963 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000428 sekund.
+Czas dzialania algorytmu bubble sort: 51.906401 sekund.
 
 
  test dla n= 175000 
-Czas dzialania algorytmu insert sort: 0.000711 sekund.
+Czas dzialania algorytmu selection sort: 36.321406 sekund.
 
-Czas dzialania algorytmu selection sort: 46.810700 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000476 sekund.
+Czas dzialania algorytmu bubble sort: 73.000659 sekund.
 
 
  test dla n= 200000 
-Czas dzialania algorytmu insert sort: 0.000811 sekund.
+Czas dzialania algorytmu selection sort: 47.308955 sekund.
 
-Czas dzialania algorytmu selection sort: 61.057994 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000544 sekund.
+Czas dzialania algorytmu bubble sort: 97.584332 sekund.
 
 
  test dla n= 225000 
-Czas dzialania algorytmu insert sort: 0.000911 sekund.
+Czas dzialania algorytmu selection sort: 59.802481 sekund.
 
-Czas dzialania algorytmu selection sort: 77.451928 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000612 sekund.
+Czas dzialania algorytmu bubble sort: 125.447772 sekund.
 
 
  test dla n= 250000 
-Czas dzialania algorytmu insert sort: 0.000878 sekund.
+Czas dzialania algorytmu selection sort: 73.860064 sekund.
 
-Czas dzialania algorytmu selection sort: 75.427393 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000552 sekund.
+Czas dzialania algorytmu bubble sort: 157.714599 sekund.
 
 
  test dla n= 275000 
-Czas dzialania algorytmu insert sort: 0.000986 sekund.
+Czas dzialania algorytmu selection sort: 89.399848 sekund.
 
-Czas dzialania algorytmu selection sort: 89.625631 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000632 sekund.
+Czas dzialania algorytmu bubble sort: 193.673591 sekund.
 
 
  test dla n= 300000 
-Czas dzialania algorytmu insert sort: 0.001122 sekund.
+Czas dzialania algorytmu selection sort: 106.448147 sekund.
 
-Czas dzialania algorytmu selection sort: 107.540465 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000627 sekund.
+Czas dzialania algorytmu bubble sort: 231.413896 sekund.
 
 
  test dla n= 325000 
-Czas dzialania algorytmu insert sort: 0.001113 sekund.
+Czas dzialania algorytmu selection sort: 124.953259 sekund.
 
-Czas dzialania algorytmu selection sort: 125.597665 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000682 sekund.
+Czas dzialania algorytmu bubble sort: 273.798934 sekund.
 
 
  test dla n= 350000 
-Czas dzialania algorytmu insert sort: 0.001179 sekund.
+Czas dzialania algorytmu selection sort: 145.109404 sekund.
 
-Czas dzialania algorytmu selection sort: 145.819748 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000735 sekund.
+Czas dzialania algorytmu bubble sort: 319.780571 sekund.
 
 
  test dla n= 375000 
-Czas dzialania algorytmu insert sort: 0.001233 sekund.
+Czas dzialania algorytmu selection sort: 166.333732 sekund.
 
-Czas dzialania algorytmu selection sort: 168.071481 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000829 sekund.
+Czas dzialania algorytmu bubble sort: 370.149075 sekund.
 
 
  test dla n= 400000 
-Czas dzialania algorytmu insert sort: 0.001401 sekund.
+Czas dzialania algorytmu selection sort: 189.172320 sekund.
 
-Czas dzialania algorytmu selection sort: 191.266397 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.000947 sekund.
+Czas dzialania algorytmu bubble sort: 430.300290 sekund.
 
 
  test dla n= 425000 
-Czas dzialania algorytmu insert sort: 0.001490 sekund.
+Czas dzialania algorytmu selection sort: 213.335095 sekund.
 
-Czas dzialania algorytmu selection sort: 215.817949 sekund.
-
-Czas dzialania algorytmu bubble sort: 0.001143 sekund.
+Czas dzialania algorytmu bubble sort: 477.064762 sekund.
 
 
  test dla n= 450000 
-Czas dzialania algorytmu insert sort: 0.002333 sekund.
+Czas dzialania algorytmu selection sort: 239.030016 sekund.
 
-Czas dzialania algorytmu selection sort: 241.569416 sekund.
+Czas dzialania algorytmu bubble sort: 535.387441 sekund.
 
-Czas dzialania algorytmu bubble sort: 0.000944 sekund.
+
+ test dla n= 475000 
+Czas dzialania algorytmu selection sort: 268.505913 sekund.
+
+Czas dzialania algorytmu bubble sort: 619.577136 sekund.
+
+
+ test dla n= 500000 
+Czas dzialania algorytmu selection sort: 294.933256 sekund.
+
+Czas dzialania algorytmu bubble sort: 666.369557 sekund.
+
+
+ test dla n= 525000 
+Czas dzialania algorytmu selection sort: 324.824316 sekund.
+
+Czas dzialania algorytmu bubble sort: 737.052023 sekund.
+
+
+ test dla n= 550000 
+Czas dzialania algorytmu selection sort: 356.768659 sekund.
+
+Czas dzialania algorytmu bubble sort: 810.710904 sekund.
 
