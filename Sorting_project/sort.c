@@ -288,3 +288,22 @@ int is_array_sorted(int *array, int num_elements) {
     }
     return 1;
 }
+
+void quicksort2(int* tab, int left, int right){
+    int v = tab[(left + right) / 2];
+    int i = left;
+    int j = right;
+    do {
+        while (tab[i] > v) i++;
+        while (tab[j] < v) j--;
+        if (i <= j) {
+            int x = tab[i];
+            tab[i] = tab[j];
+            tab[j] = x;
+            i++;
+            j--;
+        }
+    } while (i <= j);
+    if (j > left) quicksort(tab, left, j);
+    if (i < right) quicksort(tab, i, right);
+}

@@ -19,3 +19,5 @@ int* FreeArray(int*tab);
 void test1(int *tab,int n); // testowanie algorytmow grupy 1
 void test2(int *tab, int n); // testowanie algorytmow grupy 2
 void readFromFile(char *filename, int *tab, int n);
+int is_array_sorted(int *array, int num_elements);
+void quicksort2(int* tab, int left, int right);
