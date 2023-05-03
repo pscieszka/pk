@@ -20,7 +20,7 @@ int main(){
     }
     printf("\nPodaj nazwe pliku z danymi:");
     scanf("%s",file);
-    printf("\nWybierz 0, 1.\n 0 - wypisanie posortowanych liczb przez printf \n 1 - tylko wyniki czasu dzialnia \n wybor:");
+    printf("\nWybierz 0 lub 1.\n 0 - wypisanie posortowanych liczb przez printf \n 1 - tylko wyniki czasu dzialnia \n wybor:");
     scanf("%d",&wybor);
     if(wybor != 0 && wybor != 1 ){
         printf("Nie ma takiej opcji");

@@ -191,7 +191,7 @@ void test(int* tab, int n, char* file, int flag){
             printf("\nCzas dzialania algorytmu %s sort: %f sekund.\n",name[i], time);
         }
     }
-    
+
     readFromFile(file,tab,n);
     start = clock();
     quicksort(tab,0,n-1);
@@ -230,7 +230,11 @@ void readFromFile(char *filename, int *tab, int n) {
     
 
     fclose(fp);
-    if(flag) printf("Wczytano %d liczb z pliku '%s' (%.2f%% z %d)\n", cnt, filename,(float)cnt/n*100, n);
+    if(flag) {
+        printf("\n\nWczytano %d liczb z pliku '%s' (%.2f%% z %d)\n", cnt, filename,(float)cnt/n*100, n);
+        exit(0);
+    }
+    
 }
 
 void printArray(int* tab, int n){
@@ -238,4 +242,6 @@ void printArray(int* tab, int n){
         printf("%d ",tab[i]);
     }
 }
+
+
 
