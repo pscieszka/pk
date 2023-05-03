@@ -5,10 +5,6 @@
 #include "sort.h" 
 
 int main(){
-
-    srand(time(NULL));
-    clock_t start, end;
-    double time;
     int n, wybor;
     
     char file[64]; 

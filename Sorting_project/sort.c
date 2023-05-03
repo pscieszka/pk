@@ -61,7 +61,7 @@ void bubble(int* tab, int n){
 void quicksort(int* tab, int left, int right){
     
     int v=tab[(left+right)/2];
-    int i,j,x;
+    int i,j;
     i=left;
     j=right;
     do
@@ -70,9 +70,7 @@ void quicksort(int* tab, int left, int right){
         while(tab[j]>v) j--;
         if(i<=j)
         {
-            x=tab[i];
-            tab[i]=tab[j];
-            tab[j]=x;
+            swap(&tab[i],&tab[j]);
             i++;
             j--;
         }
