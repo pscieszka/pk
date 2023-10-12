@@ -1,9 +1,10 @@
 /*
  * Laboratorium Grafiki Komputerowej
- * Pierwszy program wykorzystuj¹cy OpenGL'a
+ * Pierwszy program wykorzystujÄ…cy OpenGL'a
  */
 
- /* System */
+ /*  System */
+
 #include<stdio.h>
 #include<stdlib.h>
 #include <iostream>
@@ -12,38 +13,38 @@
 /* Biblioteka GLUT */
 #include "glut.h"
 
-/* Deklaracje funkcji narzêdziowych */
+/* Deklaracje funkcji narzÄ™dziowych */
 
 /* Funkcja do rysowania */
 void DrawScene(void);
 
-void kwadrat(float x, float y);
+void square(float x, float y, float size);
 
-void sierpinskiCarpet(int x, int y, int currentIteration, int iterations);
+void carpet(float x, float y, float size, int it);
 
 /* Funkcja do inicjacji OpenGLa */
 void InitOpenGL(void);
 
-/* Funkcja wywo³ywana w momentach zmiany rozmiarów okna */
+/* Funkcja wywoÅ‚ywana w momentach zmiany rozmiarÃ³w okna */
 void ReshapeWindow(int width, int height);
 
 /* Deklaracja globalnych zmiennych */
 
-/* Globalny identyfikator g³ównego okna programu */
+/* Globalny identyfikator gÅ‚Ã³wnego okna programu */
 int mainWindow;
 
 /* Funkcja main */
 int main(int argc, char** argv)
 {
-	// Inicjujemy bibliotekê GLUT
+	// Inicjujemy bibliotekÄ™ GLUT
 	glutInit(&argc, argv);
 	// Inicjujemy: format koloru, jeden bufor ramki
 	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
-	// Ustawiamy pocz¹tkowe wymiary okna
+	// Ustawiamy poczÄ…tkowe wymiary okna
 	glutInitWindowSize(800, 800);
-	// Ustawiamy pozycjê okna - lewy górny naroznik
+	// Ustawiamy pozycjÄ™ okna - lewy gÃ³rny naroznik
 	glutInitWindowPosition(150, 150);
-	// Tworzymy g³ówne okno programu
+	// Tworzymy gÅ‚Ã³wne okno programu
 	mainWindow = glutCreateWindow("Pierwsze Laboratorium");
 
 	// Sprawdzamy powodzenie operacji
@@ -52,111 +53,110 @@ int main(int argc, char** argv)
 		exit(-1);
 	}
 
-	// Czynimy aktywnym okno g³ówne programu
+	// Czynimy aktywnym okno gÅ‚Ã³wne programu
 	glutSetWindow(mainWindow);
 
-	// Tutaj rejestrujemy funkcje narzêdziowe - tzw. callbacks
+	// Tutaj rejestrujemy funkcje narzÄ™dziowe - tzw. callbacks
 	glutDisplayFunc(DrawScene);
 	glutReshapeFunc(ReshapeWindow);
 
-	// ustawienia pocz¹tkowe
+	// ustawienia poczÄ…tkowe
 	InitOpenGL();
 
-	// Wejœcie do pêtli programu
+	// WejÅ›cie do pÄ™tli programu
 	glutMainLoop();
 
 	return(0);
 }
 
-/* W tej funkcji okreœlamy to co ma byc narysowane na ekranie.
- * Jest wywo³ywana zawsze wtedy, gdy trzeba przerysowaæ ekran - bufor ramki.
+/* W tej funkcji okreÅ›lamy to co ma byc narysowane na ekranie.
+ * Jest wywoÅ‚ywana zawsze wtedy, gdy trzeba przerysowaÄ‡ ekran - bufor ramki.
  */
 void DrawScene(void)
 {
 	/*
-	// Czyœcimy okno aktualnym (domyœlnym) kolorem
+	// CzyÅ›cimy okno aktualnym (domyÅ›lnym) kolorem
 	glClear(GL_COLOR_BUFFER_BIT);
-	// Ustawiamy gruboœæ linii
-	glLineWidth(5.0f);
-	// Tworzenie prymitywów graficznych zawsze ograniczamy funkcjami glBegin i glEnd
+	// Tworzenie prymitywÃ³w graficznych zawsze ograniczamy funkcjami glBegin i glEnd
 	glBegin(GL_TRIANGLES);
-	// Ustawiamy bie¿¹cy kolor rysowania na czerwony
+	// Ustawiamy bieÅ¼Ä…cy kolor rysowania na czerwony
 	glColor3f(1.0f, 0.0f, 0.0f);
 	//1 wierzcholek
 	glVertex2f(-50.0f, 0.0f);
-	
 	// Zmieniamy kolor rysowania na zielony
 	glColor3f(0.0f, 1.0f, 0.0f);
 	//2 wierzcholek
 	glVertex2f(0.0f, 50.0f);
-
 	// Zmieniamy kolor rysowania na niebieski
 	glColor3f(0.0f, 0.0f, 1.0f);
 	//3 wierzcholek
 	glVertex2f(50.0f, 0.0f);
-	
-
 	glEnd();
-	// Komenda wykonania poleceñ rysuj¹cych
+	// Komenda wykonania poleceÅ„ rysujÄ…cych
 	glFlush();
-		*/
-	sierpinskiCarpet(20, 20, 1, 5);
+	*/
+	float size = 200.0; // wielkosc kwadratu
+	float x = -(size / 2); // ustawienie srodka kwadratu w punkcie (0,0) na osi wspolrzednych
+	float y = -(size / 2); 
+	int it = 8; // ilosc iteracji funkcji
+
+
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	carpet(x, y, size,it); // PoczÄ…tkowy kwadrat ma rozmiar 1.0
+	glFlush();
+	
 	
 }
-void kwadrat(float x,float y) {
-	glClear(GL_COLOR_BUFFER_BIT);
+
+void square(float x, float y, float size) {
 	glBegin(GL_QUADS);
-	glColor3f(1.0f, 0.0f, 0.0f);
+	glColor3f(1.0, 0.0, 0.0); 
+
 	glVertex2f(x, y);
-	glVertex2f(-x, y);
-	glVertex2f(-x, -y);
-	glVertex2f(x, -y);
+	glVertex2f(x + size, y);
+	glVertex2f(x + size, y + size);
+	glVertex2f(x, y + size);
 	glEnd();
-	glutSwapBuffers();
-
 }
-void sierpinskiCarpet(int x, int y, int currentIteration, int iterations)
-{
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 3; j++)
-		{
-			if (i == 1 && j == i)
-				continue;
 
-			int step = pow(3, (iterations - currentIteration));
-			int newX = x + i * step;
-			int newY = y + j * step;
+void carpet(float x, float y, float size, int it) {
+	
 
-			if (currentIteration == iterations)
-			{
-				float squareW = 2.0 / pow(3, iterations);
-				float squareX = newX * squareW;
-				float squareY = newY * squareW;
+	if (it == 0) {
+		//gÅ‚Ã³wny kwadrat
+		square(x, y, size);
+	}
+	else{
+		// nowy bok - a/3
+		float newSize = size / 3;
 
-				kwadrat(squareX, squareY);
-			}
-			else
-			{
-				sierpinskiCarpet(newX, newY, currentIteration + 1, iterations);
+		// Rysujemy mniejsze kwadraty
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (i != 1 || j != 1) { // Pomijamy Å›rodek
+					carpet(x + i * newSize, y + j * newSize, newSize, it -1);
+				}
 			}
 		}
 	}
 }
 
 
-/* Ta funkcja s³u¿y do wstêpnej konfiguracji OpenGLa.
- * Zanim coœ narysujemy musimy wywo³aæ tê funkcjê.
+
+
+/* Ta funkcja sÅ‚uÅ¼y do wstÄ™pnej konfiguracji OpenGLa.
+ * Zanim coÅ› narysujemy musimy wywoÅ‚aÄ‡ tÄ™ funkcjÄ™.
  */
 void InitOpenGL(void)
 {
-	// Usawiamy domyœlny, czarny kolor t³a okna - bufor ramki malujemy na czarno
+	// Usawiamy domyÅ›lny, czarny kolor tÅ‚a okna - bufor ramki malujemy na czarno
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 }
 
-/* Tê funkcjê wywo³uje system w momencie gdy uytkownik zmieni mysz¹
- * rozmiar g³ownego okna. jej zadaniem jest zachowanie propocji wymiarów
- * rysowanych obiektów niezale¿nie od wymiarów okna.
+/* TÄ™ funkcjÄ™ wywoÅ‚uje system w momencie gdy uytkownik zmieni myszÄ…
+ * rozmiar gÅ‚ownego okna. jej zadaniem jest zachowanie propocji wymiarÃ³w
+ * rysowanych obiektÃ³w niezaleÅ¼nie od wymiarÃ³w okna.
  */
 void ReshapeWindow(int width, int height)
 {
@@ -165,14 +165,14 @@ void ReshapeWindow(int width, int height)
 	// Na wypadek dzielenia przez 0
 	if (height == 0) height = 1;
 
-	// Wyliczamy wspó³czynnik proporcji
+	// Wyliczamy wspÃ³Å‚czynnik proporcji
 	aspectRatio = width / height;
 
-	// Ustawiamy wielkoœci okna okna urz¹dzenia w zakresie
-	// od 0,0 do wysokoœæ, szerokoœæ
+	// Ustawiamy wielkoÅ›ci okna okna urzÄ…dzenia w zakresie
+	// od 0,0 do wysokoÅ›Ä‡, szerokoÅ›Ä‡
 	glViewport(0, 0, width, height);
 
-	// Ustawiamy uk³ad wspó³rzêdnych obserwatora
+	// Ustawiamy ukÅ‚ad wspÃ³Å‚rzÄ™dnych obserwatora
 	glMatrixMode(GL_PROJECTION);
 
 	// Resetujemy macierz projkecji 
