@@ -6,6 +6,6 @@ class Matrix
 	const int row;
 public:
 	Matrix(int col, int row);
-
+	Matrix(Matrix&);
 };
 
