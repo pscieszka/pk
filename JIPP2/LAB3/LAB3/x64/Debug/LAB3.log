@@ -1,6 +1,0 @@
-﻿  LAB3.cpp
-  Matrix.cpp
-C:\Users\Piotr\Desktop\LAB3\LAB3\Matrix.cpp(5,28): error C2540: niestałe wyrażenie jako granica tablicy
-C:\Users\Piotr\Desktop\LAB3\LAB3\Matrix.cpp(5,8): error C2440: "=": nie można konwertować z "double (*)[1]" na "double *"
-C:\Users\Piotr\Desktop\LAB3\LAB3\Matrix.cpp(5,8): message : Wskazane typy nie są powiązane; konwersja wymaga operatora reinterpret_cast, rzutowania w stylu języka C lub rzutowania w stylu funkcji ujętego w nawiasach
-  Generowanie kodu...
