@@ -1,0 +1,22 @@
+#!/bin/bash
+
+if [ $# -ne 2 ];then
+echo "zla liczba argumentow"
+exit 0
+fi
+
+if [ -e $1 -a -e $2 ];then
+a=$(wc -c <  $1)
+b=$(wc -c < $2)
+if ((a>b));then
+c=$((a-b))
+echo "plik $1 jest wiekszy o $c znakow"
+else
+c=$((b-a))
+echo "plik $2 jest wieskzy o $c znakow"
+fi
+else
+echo "Jeden lub wiecej plikow nie istnieja"
+fi
+
+

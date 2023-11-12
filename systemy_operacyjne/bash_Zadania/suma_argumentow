@@ -1,0 +1,12 @@
+#!/bin/bash
+
+pierwszy=$1
+shift
+
+suma=0
+while [ $pierwszy -ne $1 ]; do
+suma=$(($suma+$1))
+shift
+done
+
+echo "suma: $suma"
