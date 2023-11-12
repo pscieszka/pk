@@ -1,0 +1,10 @@
+#!/bin/bash
+who | grep -q "$1"
+
+if [ $? -eq 0 ]; then
+echo "znaleziono uzytkownika $1"
+kiedy=$(who | grep "$1" | cut -d " " -f11)
+echo "zalogowal sie o $kiedy"
+else
+echo "nie znaleziono uzytkownika"
+fi

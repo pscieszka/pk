@@ -1,0 +1,20 @@
+#!/bin/bash
+
+while true;do
+echo "Podaj nazwe pliku"
+read plik
+if [ -z "$plik" ];then
+echo " Nic nie podano. koniec"
+exit 4
+fi
+if [ -e "$plik" ]; then
+if [ -f "$plik" ] && [ -x "$plik" ];then
+echo "plik z prawem x"
+else
+echo "plik bez prawa x"
+fi
+else
+echo "plik nie istnieje"
+fi
+done
+

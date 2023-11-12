@@ -1,0 +1,7 @@
+#!/bin/bash
+rem="$1"
+rem2="$2"
+
+mv "$rem" "$rem.2"
+mv "$rem2" "$rem"
+mv "$rem.2" "$rem2"
