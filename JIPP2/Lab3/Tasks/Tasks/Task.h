@@ -13,6 +13,5 @@ public:
 	virtual void changeName(std::string name) = 0;
 	virtual ~Task() = default;
 	
-
 };
 

@@ -12,11 +12,11 @@ private:
 
 public:
 	TaskContainer(int size);
-
+	//To do: konstruktor kopiujacy
 	void add(Task* task);
 	void displayAll();
 
-	//TaskId != task :/
+	//TaskId (pole klasy Task)!= id
 	void displayId(int id);
 	void deleteId(int id);
 	~TaskContainer();

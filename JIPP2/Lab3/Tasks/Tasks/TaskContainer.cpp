@@ -67,10 +67,14 @@ void TaskContainer::displayId(int id)
 
 void TaskContainer::deleteId(int id)
 {
+	
 	if (tab != NULL) {
 		if (id >= 0 && id<size) {
 			if (tab[id] != NULL) {
 				tab[id] = NULL;
+				if (id == actualSize) {
+					actualSize--;
+				}
 			}
 		}
 	}
