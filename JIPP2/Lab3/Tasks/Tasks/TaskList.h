@@ -11,7 +11,7 @@ public:
 	void display() const override;
 	void changeName(std::string name) override;
 	
-
+	//Dodatkowa metoda
 	void addToContents(std::string name);
 
 	
