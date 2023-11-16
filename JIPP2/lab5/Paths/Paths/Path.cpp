@@ -16,12 +16,12 @@ void Path::setPath(std::string path)
     else this->path = "";
 }
 
-bool Path::isPathCorrect(std::string path)
+bool Path::isPathCorrect(const std::string path)
 {
     if (path[0] != '/') {
         return false;
     }
-    for (int i = 0; i<path.size()-1; i++) {
+    for (int i = 0; i < path.size() - 1; i++) {
         if (path[i] == '/' && path[i + 1] == '/') {
             return false;
         }
@@ -32,67 +32,64 @@ bool Path::isPathCorrect(std::string path)
 Path Path::operator+(std::string rhs)
 {
     if (path == "") return path;
-    if (rhs == "") return path;
-    if (rhs[rhs.size() - 1] == '/') rhs.pop_back();
-    if (rhs[0] == '/') return path += rhs;
+    if (rhs[0] == '/') rhs = rhs.substr(1, rhs.size()-1);// "/" z przodu
+    if (rhs[rhs.size() - 1] == '/') rhs = rhs.substr(0, rhs.size() - 1); // "/" z tylu
+    if (rhs.find('/') != std::string::npos)  return path; // ma inne "/"
+    else {
+        return path + '/' + rhs;
+    }
     
-    return path + '/' + rhs;
 
 }
 
 Path& Path::operator+=(std::string rhs)
 {
-    if (path=="") {
-        path = rhs;
+    if (path == "") return *this;
+    if (rhs[0] == '/') rhs = rhs.substr(1, rhs.size() - 1);// "/" z przodu
+    if (rhs[rhs.size() - 1] == '/') rhs = rhs.substr(0, rhs.size() - 1); // "/" z tylu
+    if (rhs.find('/') != std::string::npos)  return *this; // ma inne "/"
+    else {
+        path = path + '/' + rhs;
+        return *this;
     }
-    else if (rhs!="") {
-        if (rhs[rhs.size()-1] == '/') {
-            rhs.pop_back();
-            path += rhs;
-        }
-        else if (rhs[0] == '/') {
-            path += rhs;
-        }
-        else {
-            path += '/' + rhs;
-        }
-    }
-    return *this;
 }
 
 Path& Path::operator--()
 {
-    if (path == "") return *this;
+    if (path == "/") return *this;
     for (int i = path.size() - 1; i >= 0; i--) {
         if (path[i] == '/') {
-            path = path.substr(0, i );
+            path = path.substr(0, i);
             break;
         }
     }
     return *this;
 }
 
-bool Path::operator==(std::string rhs)
+bool Path::operator==(const Path& rhs)
 {
-    return rhs == path;
+    return rhs.path == path;
 }
 
-bool Path::operator!=(std::string rhs)
+bool Path::operator!=(const Path& rhs)
 {
-    return rhs != path;
+    return rhs.path != path;
 }
 
-bool Path::operator<=(std::string rhs)
+bool Path::operator<=(const Path& rhs)
 {
-    for (int i = 0; i < path.size() - rhs.size()+1; i++) {
-        if (path.substr(i, rhs.size()) == rhs) {
+    if (!isPathCorrect(rhs.path))  return false;
+    if (rhs.path.substr(0, path.size()) == path) return true; //?
+
+    for (int i = 0; i < path.size() - rhs.path.size() + 1; i++) {
+        if (path.substr(i, rhs.path.size()) == rhs.path) {
             return true;
         }
     }
     return false;
 }
 
-std::ostream& operator<<(std::ostream& lhs, Path& rhs)
+std::ostream& operator<<(std::ostream& lhs,const Path& rhs)
 {
     return lhs << rhs.path;
 }
