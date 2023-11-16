@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <unistd.h>
+
+int main() {
+    pid_t pid = getpid();   // PID (Identyfikator procesu)
+    pid_t ppid = getppid(); // PPID (Identyfikator procesu macierzystego)
+    uid_t uid = getuid();   // UID (Identyfikator użytkownika)
+    gid_t gid = getgid();   // GID (Identyfikator grupy)
+
+    printf("PID (Identyfikator procesu): %d\n", pid);
+    printf("PPID (Identyfikator procesu macierzystego): %d\n", ppid);
+    printf("UID (Identyfikator użytkownika): %d\n", uid);
+    printf("GID (Identyfikator grupy): %d\n", gid);
+
+    return 0;
+}
