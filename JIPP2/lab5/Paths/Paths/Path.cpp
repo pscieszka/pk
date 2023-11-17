@@ -1,95 +1,47 @@
-#include "Path.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
-Path::Path(std::string path)
-{
-    if (isPathCorrect(path)) {
-        this->path = path;
-    }
-    else this->path = "";
+void printID{
+    printf("PID %d  ", getpid());
+    printf("PPID %d  ", getppid());
+    printf("UID %d  " , getuid());
+    printf("GID %d\n" , getgid());
 }
 
-void Path::setPath(std::string path)
-{
-    if (isPathCorrect(path)) {
-        this->path = path;
-    }
-    else this->path = "";
-}
+int main(){
+printf("Rodzic\n");
+printID();
+int pid2=getpid(); //zapisujemy pid rodzica
+int pid;
+printf("Potomkowie:\n");
+for(int i=0; i<3;i++){
+        pid=fork();
+        // pid == 0 -> potomek
+        // pid > 0  -> rodzic
+        // pid == -1 -> blad
 
-bool Path::isPathCorrect(const std::string path)
-{
-    if (path[0] != '/') {
-        return false;
-    }
-    for (int i = 0; i < path.size() - 1; i++) {
-        if (path[i] == '/' && path[i + 1] == '/') {
-            return false;
+        if(pid==0){
+                printID();
+                    
         }
-    }
-    return true;
-}
-
-Path Path::operator+(std::string rhs)
-{
-    if (path == "") return path;
-    if (rhs[0] == '/') rhs = rhs.substr(1, rhs.size()-1);// "/" z przodu
-    if (rhs[rhs.size() - 1] == '/') rhs = rhs.substr(0, rhs.size() - 1); // "/" z tylu
-    if (rhs.find('/') != std::string::npos)  return path; // ma inne "/"
-    else {
-        return path + '/' + rhs;
-    }
-    
-
-}
-
-Path& Path::operator+=(std::string rhs)
-{
-    if (path == "") return *this;
-    if (rhs[0] == '/') rhs = rhs.substr(1, rhs.size() - 1);// "/" z przodu
-    if (rhs[rhs.size() - 1] == '/') rhs = rhs.substr(0, rhs.size() - 1); // "/" z tylu
-    if (rhs.find('/') != std::string::npos)  return *this; // ma inne "/"
-    else {
-        path = path + '/' + rhs;
-        return *this;
-    }
-}
-
-Path& Path::operator--()
-{
-    if (path == "/") return *this;
-    for (int i = path.size() - 1; i >= 0; i--) {
-        if (path[i] == '/') {
-            path = path.substr(0, i);
-            break;
+        else if(pid==-1){
+                printf("Blad podczas operacji fork()\n");
         }
-    }
-    return *this;
+
+
+        //i = 0 -> 2 procesy
+        //i = 1 -> 4 procesy
+        //i = 2 -> 8 procesow
+}
+//8 procesow
+
+if(getpid()==pid2){//wywolujemy pstree tylko w procesie rodzica
+char cmd[32];
+sprintf(cmd,"pstree -p  %d",pid2);// -p wyswietl numery PID
+system(cmd);
 }
 
-bool Path::operator==(const Path& rhs)
-{
-    return rhs.path == path;
-}
 
-bool Path::operator!=(const Path& rhs)
-{
-    return rhs.path != path;
-}
-
-bool Path::operator<=(const Path& rhs)
-{
-    if (!isPathCorrect(rhs.path))  return false;
-    if (rhs.path.substr(0, path.size()) == path) return true; //?
-
-    for (int i = 0; i < path.size() - rhs.path.size() + 1; i++) {
-        if (path.substr(i, rhs.path.size()) == rhs.path) {
-            return true;
-        }
-    }
-    return false;
-}
-
-std::ostream& operator<<(std::ostream& lhs,const Path& rhs)
-{
-    return lhs << rhs.path;
+sleep(1); // Poczekaj 1 sekunde, aby ostatnia linia kodu nie nachodzila na kolejne polecnia
 }

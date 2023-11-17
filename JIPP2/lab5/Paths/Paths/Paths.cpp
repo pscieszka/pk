@@ -3,13 +3,13 @@
 int main()
 {
     Path p("/abc/ddd");
-    p = p + "/ccc/abc/"; // do poprawenia chyba
-    p += "/3333/"; // chyba tez
+    Path p2("/abc/ddd");
+    p2 = p + "/ccc/"; // do poprawenia chyba
+
     std::cout << p.getPath()<<std::endl;
-    bool res = p <= "/abc/ccc/abc/3333";
-    std::cout << res<<std::endl;
-    --p;
-    std::cout << p;
+    std::cout << p2.getPath() << std::endl;
+
+
 
 }
 
