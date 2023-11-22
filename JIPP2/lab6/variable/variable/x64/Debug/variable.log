@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\Piotr\Desktop\pk\pk\JIPP2\lab6\variable\variable\main.cpp(15,63): warning C4244: "argument": konwersja z "double" do "unsigned __int64", możliwa utrata danych
+  variable.cpp
+  Generowanie kodu...
+  variable.vcxproj -> C:\Users\Piotr\Desktop\pk\pk\JIPP2\lab6\variable\x64\Debug\variable.exe
