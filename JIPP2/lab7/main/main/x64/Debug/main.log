@@ -1,2 +1,3 @@
 ﻿  main.cpp
-  main.vcxproj -> C:\Users\Piotr\Desktop\pk\pk\JIPP2\lab7\main\x64\Debug\main.exe
+C:\Users\Piotr\Desktop\pk\pk\JIPP2\lab7\main\main\main.cpp(76): error C3487: 'const char *': all return expressions must deduce to the same type: previously it was 'std::string'
+C:\Users\Piotr\Desktop\pk\pk\JIPP2\lab7\main\main\main.cpp(77,13): error C2065: 'str': undeclared identifier
